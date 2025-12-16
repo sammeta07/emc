@@ -1,0 +1,10 @@
+.app-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* align-items: center; */
+  background-color: rgb(219, 235, 219);
+  width: calc(100vw - 20px);
+  height: calc(100vh - 20px);
+  overflow: scroll;
+}

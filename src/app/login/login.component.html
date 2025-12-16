@@ -1,0 +1,29 @@
+<div class="login">
+  <h2>Login</h2>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
+    <label>
+      Email
+      <input type="email" formControlName="email" />
+    </label>
+    <div class="error" *ngIf="control('email')?.touched && control('email')?.invalid">
+      <div *ngIf="control('email')?.errors?.['required']">Email is required.</div>
+      <div *ngIf="control('email')?.errors?.['email']">Please enter a valid email address.</div>
+    </div>
+
+    <label>
+      Password
+      <input type="password" formControlName="password" />
+    </label>
+    <div class="error" *ngIf="control('password')?.touched && control('password')?.invalid">
+      <div *ngIf="control('password')?.errors?.['required']">Password is required.</div>
+      <div *ngIf="control('password')?.errors?.['minlength']">Password must be at least 6 characters.</div>
+    </div>
+
+    <button type="submit" [disabled]="form.invalid">Login</button>
+
+    <p class="register-link">Don't have an account? <a routerLink="/register">Register</a></p>
+
+    <div class="success" *ngIf="submitted() && form.valid">Login submitted ✅</div>
+  </form>
+</div>

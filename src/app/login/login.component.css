@@ -1,0 +1,40 @@
+.login {
+  max-width: 420px;
+  margin: 24px auto;
+  padding: 14px;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  background: #fff;
+}
+
+label { 
+  display:block; 
+  margin-bottom:8px 
+}
+
+input { 
+  display:block; width:100%; 
+  padding:8px; 
+  margin-top:4px; 
+  box-sizing:border-box
+}
+
+.error { 
+  color:#b00020; 
+  font-size:0.9rem;
+  margin-bottom:8px 
+}
+
+button { 
+  margin-top:12px; 
+  padding:8px 12px 
+}
+
+.register-link { 
+  margin-top:10px 
+}
+
+.success { 
+  margin-top:12px; 
+  color:#0a7f3b 
+}

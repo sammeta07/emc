@@ -1,0 +1,49 @@
+<div class="registration">
+  <h2>Create an account</h2>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
+    <label>
+      First name
+      <input type="text" formControlName="firstname" />
+    </label>
+    <div class="error" *ngIf="control('firstname')?.touched && control('firstname')?.invalid">
+      <div *ngIf="control('firstname')?.errors?.['required']">First name is required.</div>
+      <div *ngIf="control('firstname')?.errors?.['minlength']">First name must be at least 2 characters.</div>
+      <div *ngIf="control('firstname')?.errors?.['maxlength']">First name must be at most 50 characters.</div>
+    </div>
+
+    <label>
+      Last name
+      <input type="text" formControlName="lastname" />
+    </label>
+    <div class="error" *ngIf="control('lastname')?.touched && control('lastname')?.invalid">
+      <div *ngIf="control('lastname')?.errors?.['required']">Last name is required.</div>
+      <div *ngIf="control('lastname')?.errors?.['minlength']">Last name must be at least 2 characters.</div>
+      <div *ngIf="control('lastname')?.errors?.['maxlength']">Last name must be at most 50 characters.</div>
+    </div>
+
+    <label>
+      Mobile
+      <input type="tel" formControlName="mobile" />
+    </label>
+    <div class="error" *ngIf="control('mobile')?.touched && control('mobile')?.invalid">
+      <div *ngIf="control('mobile')?.errors?.['required']">Mobile number is required.</div>
+      <div *ngIf="control('mobile')?.errors?.['pattern']">Mobile must be a 10-digit number.</div>
+    </div>
+
+    <label>
+      Email
+      <input type="email" formControlName="email" />
+    </label>
+    <div class="error" *ngIf="control('email')?.touched && control('email')?.invalid">
+      <div *ngIf="control('email')?.errors?.['required']">Email is required.</div>
+      <div *ngIf="control('email')?.errors?.['email']">Please enter a valid email address.</div>
+    </div>
+
+    <button type="submit" [disabled]="form.invalid">Register</button>
+
+    <p class="login-link">Already registered? <a routerLink="/login">Login here</a></p>
+
+    <div class="success" *ngIf="submitted() && form.valid">Registration submitted successfully ✅</div>
+  </form>
+</div>
