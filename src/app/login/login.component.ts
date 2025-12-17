@@ -42,7 +42,7 @@ export class LoginComponent {
 
   onSubmit() {
     if (this.loginForm.valid) {
-      console.log('Form Data:', this.loginForm.value);
+      console.log('login Form Data:', this.loginForm.value);
     }
   }
 }
