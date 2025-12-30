@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { MaterialModule } from '../shared/material-module';
+import { ApiService } from '../shared/api.service';
 
 @Component({
   selector: 'app-login',
@@ -33,7 +34,11 @@ export class LoginComponent {
   // -----------------------------------------------------------------------------
   loginForm: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+
+  constructor(
+    private fb: FormBuilder, 
+    private api: ApiService
+  ) {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]]
@@ -41,8 +46,16 @@ export class LoginComponent {
   }
 
   onSubmit() {
+    console.log(this.loginForm.value);
     if (this.loginForm.valid) {
-      console.log('login Form Data:', this.loginForm.value);
+      this.api.postData(this.loginForm.value).subscribe({
+        next: (response) => {
+          console.log('Login success:', response);
+        },
+        error: (err) => {
+          console.error('Login failed:', err);
+        }
+      });
     }
   }
 }
