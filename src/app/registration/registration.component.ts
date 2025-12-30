@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, Validators,FormGroup } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { MaterialModule } from '../shared/material-module';
-import { last } from 'rxjs';
+import { ApiService } from '../shared/api.service';
 
 @Component({
   selector: 'app-registration',
@@ -39,7 +39,10 @@ export class RegistrationComponent {
   // -----------------------------------------------------------------------------
   registrationForm: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(
+    private fb: FormBuilder,
+    private api: ApiService
+  ) {
     this.registrationForm = this.fb.group({
       firstName: ['', [Validators.required, Validators.minLength(3)]],
       lastName: ['', [Validators.required, Validators.minLength(3)]],
@@ -49,8 +52,16 @@ export class RegistrationComponent {
   }
 
   onSubmit() {
+    console.log(this.registrationForm.value);
     if (this.registrationForm.valid) {
-      console.log('registration Form Data:', this.registrationForm.value);
+      this.api.postData(this.registrationForm.value).subscribe({
+        next: (response) => {
+          console.log('Registration success:', response);
+        },
+        error: (err) => {
+          console.error('Registration failed:', err);
+        }
+      });
     }
   }
 }
