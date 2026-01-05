@@ -44,11 +44,12 @@ export class RegistrationComponent {
     private api: ApiService
   ) {
     this.registrationForm = this.fb.group({
-      firstName: ['', [Validators.required, Validators.minLength(3)]],
-      lastName: ['', [Validators.required, Validators.minLength(3)]],
+      groupName: ['', [Validators.required, Validators.minLength(3)]],
       email: ['', [Validators.required, Validators.email]],
-      mobile: ['', [Validators.required, Validators.pattern(/^\d{10}$/)]]
-    });
+      mobile: ['', [Validators.required, Validators.pattern(/^\d{10}$/)]],
+      password: ['', [Validators.required]],
+      confirmPassword: ['', [Validators.required]]
+      });
   }
 
   onSubmit() {

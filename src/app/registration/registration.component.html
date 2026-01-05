@@ -81,26 +81,17 @@
  <div class="registration-container">
   <mat-card>
     <mat-card-header>
-      <mat-card-title>Create an account</mat-card-title>
+      <mat-card-title>Register Group</mat-card-title>
     </mat-card-header>
     
     <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
       <mat-card-content>
         <mat-form-field appearance="outline" class="full-width">
-          <mat-label>First name</mat-label>
-          <mat-icon matPrefix>person</mat-icon>
-          <input matInput formControlName="firstName" type="firstName">
-          <mat-error *ngIf="registrationForm.get('firstName')?.hasError('required')">
-            First name is required
-          </mat-error>
-        </mat-form-field>
-
-        <mat-form-field appearance="outline" class="full-width">
-          <mat-label>Last name</mat-label>
-          <mat-icon matPrefix>person</mat-icon>
-          <input matInput formControlName="lastName" type="lastName">
-          <mat-error *ngIf="registrationForm.get('lastName')?.hasError('required')">
-            Last name is required
+          <mat-label>Group name</mat-label>
+          <mat-icon matPrefix>persons</mat-icon>
+          <input matInput formControlName="groupName" type="groupName">
+          <mat-error *ngIf="registrationForm.get('groupName')?.hasError('required')">
+            Group name is required
           </mat-error>
         </mat-form-field>
 
@@ -122,6 +113,23 @@
           </mat-error>
         </mat-form-field>
 
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Password</mat-label>
+            <mat-icon matPrefix>lock</mat-icon>
+            <input matInput formControlName="password" type="password">
+            <mat-error *ngIf="registrationForm.get('password')?.hasError('required')">
+              Password is required
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Confirm Password</mat-label>
+            <mat-icon matPrefix>lock</mat-icon>
+            <input matInput formControlName="confirmPassword" type="password">
+            <mat-error *ngIf="registrationForm.get('confirmPassword')?.hasError('required')">
+              Confirm Password is required
+            </mat-error>
+          </mat-form-field>
       </mat-card-content>
 
       <mat-card-actions class="action-container">
