@@ -5,7 +5,6 @@ import { environment } from '../../environments/environments';
 
 @Injectable({ providedIn: 'root' })
 export class ApiService {
-  private baseUrl = 'https://your-backend-url/api'; // Update with your backend URL
 
   constructor(private http: HttpClient) {}
 
@@ -15,6 +14,6 @@ export class ApiService {
 
   postData(payload: any): Observable<any> {
     console.log(payload);
-    return this.http.post(`${environment.apiUrl}/api/create_group`, payload);
+    return this.http.post(`${environment.apiUrl}/create_group`, payload);
   }
 }
