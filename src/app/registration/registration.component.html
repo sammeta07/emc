@@ -4,13 +4,13 @@
       <mat-card-title>Register Group</mat-card-title>
     </mat-card-header>
 
-    <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+    <form [formGroup]="groupRegistrationForm" (ngSubmit)="onSubmit()">
       <mat-card-content>
         <mat-form-field appearance="outline" class="full-width">
           <mat-label>Group name</mat-label>
           <mat-icon matPrefix>group_add</mat-icon>
-          <input matInput formControlName="groupName" type="groupName" />
-          <mat-error *ngIf="registrationForm.get('groupName')?.hasError('required')">
+          <input autocomplete="group-name" matInput formControlName="groupName" type="groupName" />
+          <mat-error *ngIf="groupRegistrationForm.get('groupName')?.hasError('required')">
             Group name is required
           </mat-error>
         </mat-form-field>
@@ -18,33 +18,33 @@
         <mat-form-field appearance="outline" class="full-width">
           <mat-label>Mobile</mat-label>
           <mat-icon matPrefix>phone</mat-icon>
-          <input matInput formControlName="mobile" type="number" />
-          <mat-error *ngIf="registrationForm.get('mobile')?.hasError('required')">
+          <input autocomplete="group-mobile" matInput formControlName="groupMobile" type="number" />
+          <mat-error *ngIf="groupRegistrationForm.get('groupMobile')?.hasError('required')">
             Mobile is required
           </mat-error>
         </mat-form-field>
 
         <mat-form-field appearance="outline" class="full-width">
-          <mat-label>Email</mat-label>
+          <mat-label>Group Email</mat-label>
           <mat-icon matPrefix>email</mat-icon>
-          <input matInput formControlName="email" placeholder="pat@example.com" />
-          <mat-error *ngIf="registrationForm.get('email')?.hasError('required')">
+          <input autocomplete="group-email" matInput formControlName="groupEmail" placeholder="pat@example.com" />
+          <mat-error *ngIf="groupRegistrationForm.get('groupEmail')?.hasError('required')">
             Email is required
           </mat-error>
-          <mat-error *ngIf="registrationForm.get('email')?.hasError('email')">
+          <mat-error *ngIf="groupRegistrationForm.get('groupEmail')?.hasError('groupEmail')">
             Please enter a valid email address
           </mat-error>
         </mat-form-field>
 
         <mat-form-field appearance="outline" class="full-width">
-          <mat-label>Password</mat-label>
+          <mat-label>Group Password</mat-label>
           <mat-icon matPrefix>lock</mat-icon>
-          <input matInput formControlName="password" [type]="hidePassword ? 'password' : 'text'" />
+          <input autocomplete="group-password" matInput formControlName="groupPassword" [type]="hidePassword ? 'password' : 'text'" />
           <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword" [attr.aria-label]="'Hide password'"
             [attr.aria-pressed]="hidePassword" type="button">
-            <mat-icon>{{ hidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+            <mat-icon>{{ hidePassword ? 'visibility' : 'visibility_off' }}</mat-icon>
           </button>
-          <mat-error *ngIf="registrationForm.get('password')?.hasError('required')">
+          <mat-error *ngIf="groupRegistrationForm.get('groupPassword')?.hasError('required')">
             Password is required
           </mat-error>
         </mat-form-field>
@@ -52,16 +52,16 @@
         <mat-form-field appearance="outline" class="full-width">
           <mat-label>Confirm Password</mat-label>
           <mat-icon matPrefix>lock</mat-icon>
-          <input matInput formControlName="confirmPassword" [type]="hideConfirmPassword ? 'password' : 'text'" />
+          <input autocomplete="group-confirm-password" matInput formControlName="groupConfirmPassword" [type]="hideConfirmPassword ? 'password' : 'text'" />
           <button mat-icon-button matSuffix (click)="hideConfirmPassword = !hideConfirmPassword" type="button">
-            <mat-icon>{{ hideConfirmPassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+            <mat-icon>{{ hideConfirmPassword ? 'visibility' : 'visibility_off' }}</mat-icon>
           </button>
-          <mat-error *ngIf="registrationForm.get('confirmPassword')?.hasError('required')">
+          <mat-error *ngIf="groupRegistrationForm.get('groupConfirmPassword')?.hasError('required')">
             Confirm Password is required
           </mat-error>
           <mat-error *ngIf="
-              registrationForm.hasError('passwordMismatch') &&
-              registrationForm.get('confirmPassword')?.touched
+              groupRegistrationForm.hasError('passwordMismatch') &&
+              groupRegistrationForm.get('groupConfirmhgxccvPassword')?.touched
             ">
             Passwords do not match
           </mat-error>
@@ -69,7 +69,7 @@
       </mat-card-content>
 
       <mat-card-actions class="action-container">
-        <button mat-raised-button color="primary" type="submit" [disabled]="!registrationForm.valid">
+        <button mat-raised-button color="primary" type="submit" [disabled]="!groupRegistrationForm.valid">
           Register
         </button>
         <span class="spacer"></span>

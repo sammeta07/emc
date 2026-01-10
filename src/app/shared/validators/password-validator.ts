@@ -2,23 +2,23 @@ import { AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms';
 
 export class CustomValidators {
   static passwordMatch(control: AbstractControl): ValidationErrors | null {
-    const password = control.get('password');
-    const confirmPassword = control.get('confirmPassword');
+    const groupPassword = control.get('groupPassword');
+    const groupConfirmPassword = control.get('groupConfirmPassword');
 
-    if (!password || !confirmPassword) {
+    if (!groupPassword || !groupConfirmPassword) {
       return null;
     }
 
-    if (password.value !== confirmPassword.value) {
-      confirmPassword.setErrors({ passwordMismatch: true });
+    if (groupPassword.value !== groupConfirmPassword.value) {
+      groupConfirmPassword.setErrors({ passwordMismatch: true });
       return { passwordMismatch: true };
     } else {
       // If they match, we need to make sure we don't accidentally 
       // clear other errors (like 'required')
-      const errors = confirmPassword.errors;
+      const errors = groupConfirmPassword.errors;
       if (errors) {
         delete errors['passwordMismatch'];
-        confirmPassword.setErrors(Object.keys(errors).length ? errors : null);
+        groupConfirmPassword.setErrors(Object.keys(errors).length ? errors : null);
       }
       return null;
     }

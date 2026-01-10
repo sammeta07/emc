@@ -14,7 +14,7 @@ import { CustomValidators } from '../shared/validators/password-validator';
 })
 export class RegistrationComponent {
   
-  registrationForm: FormGroup;
+  groupRegistrationForm: FormGroup;
   hidePassword = true;
   hideConfirmPassword = true;
   
@@ -22,21 +22,21 @@ export class RegistrationComponent {
     private fb: FormBuilder,
     private registrationService: Registration,
   ) {
-    this.registrationForm = this.fb.group({
+    this.groupRegistrationForm = this.fb.group({
       groupName: ['', [Validators.required, Validators.minLength(3)]],
-      email: ['', [Validators.required, Validators.email]],
-      mobile: ['', [Validators.required, Validators.pattern(/^\d{10}$/)]],
-      password: ['', [Validators.required]],
-      confirmPassword: ['', [Validators.required]]
+      groupEmail: ['', [Validators.required, Validators.email]],
+      groupMobile: ['', [Validators.required, Validators.pattern(/^\d{10}$/)]],
+      groupPassword: ['', [Validators.required]],
+      groupConfirmPassword: ['', [Validators.required]]
       }, { 
       validators: CustomValidators.passwordMatch 
     });
   }
 
   onSubmit() {
-    console.log(this.registrationForm.value);
-    if (this.registrationForm.valid) {
-      this.registrationService.createGroup(this.registrationForm.value).subscribe({
+    console.log(this.groupRegistrationForm.value);
+    if (this.groupRegistrationForm.valid) {
+      this.registrationService.groupCreate(this.groupRegistrationForm.value).subscribe({
         next: (response) => {
           console.log('Registration success:', response);
         },

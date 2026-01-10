@@ -9,12 +9,8 @@ import { environment } from '../../environments/environments';
 export class Login {
   constructor(private http: HttpClient) {}
 
-  getData(): Observable<any> {
-    return this.http.get(`${environment.apiUrl}/login`);
-  }
-
-  postData(payload: any): Observable<any> {
+  groupLogin(payload: any): Observable<any> {
     console.log(payload);
-    return this.http.post(`${environment.apiUrl}/create_group`, payload);
+    return this.http.post(`${environment.apiUrl}/group_login`, payload);
   }
 }

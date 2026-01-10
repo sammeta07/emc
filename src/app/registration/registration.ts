@@ -9,7 +9,7 @@ import { environment } from '../../environments/environments';
 export class Registration {
   constructor(private http: HttpClient) {}
 
-  createGroup(payload: any): Observable<any> {
-    return this.http.post(`${environment.apiUrl}/create_group`, payload);
+  groupCreate(payload: any): Observable<any> {
+    return this.http.post(`${environment.apiUrl}/group_create`, payload);
   }
 }

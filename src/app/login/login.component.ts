@@ -14,23 +14,23 @@ import { Login } from './login';
 })
 export class LoginComponent {
   
-  loginForm: FormGroup;
-
+  groupLoginForm: FormGroup;
+  hidePassword = true;
 
   constructor(
     private fb: FormBuilder, 
     private loginService: Login,
   ) {
-    this.loginForm = this.fb.group({
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(6)]]
+    this.groupLoginForm = this.fb.group({
+      groupEmail: ['', [Validators.required, Validators.email]],
+      groupPassword: ['', [Validators.required, Validators.minLength(6)]]
     });
   }
 
   onSubmit() {
-    console.log(this.loginForm.value);
-    if (this.loginForm.valid) {
-      this.loginService.postData(this.loginForm.value).subscribe({
+    console.log(this.groupLoginForm.value);
+    if (this.groupLoginForm.valid) {
+      this.loginService.groupLogin(this.groupLoginForm.value).subscribe({
         next: (response) => {
           console.log('Login success:', response);
         },
