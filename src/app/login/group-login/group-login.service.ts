@@ -6,7 +6,7 @@ import { environment } from '../../../environments/environments';
 @Injectable({
   providedIn: 'root',
 })
-export class GroupLogin {
+export class GroupLoginService {
   constructor(private http: HttpClient) {}
 
   groupLogin(payload: any): Observable<any> {

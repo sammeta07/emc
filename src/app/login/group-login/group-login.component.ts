@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { MaterialModule } from '../../shared/design/material-module';
-import { GroupLogin} from './group-login';
+import { GroupLoginService} from './group-login.service';
 
 @Component({
   selector: 'app-group-login',
@@ -19,7 +19,7 @@ export class GroupLoginComponent {
 
   constructor(
     private fb: FormBuilder, 
-    private groupLoginService: GroupLogin,
+    private groupLoginService: GroupLoginService,
   ) {
     this.groupLoginForm = this.fb.group({
       groupEmail: ['', [Validators.required, Validators.email]],
