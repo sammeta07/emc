@@ -4,10 +4,11 @@ import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
+  standalone: true,
   imports: [RouterOutlet, HttpClientModule],
-  templateUrl: './app.html',
-  styleUrl: './app.css'
+  templateUrl: './app.component.html',
+  styleUrl: './app.component.css'
 })
-export class App {
+export class AppComponent {
   protected readonly title = signal('emc');
 }
