@@ -1,9 +1,5 @@
 <div class="group-login-container">
   <mat-card>
-    <mat-card-header>
-      <mat-card-title>Group Login</mat-card-title>
-    </mat-card-header>
-    
     <form [formGroup]="groupLoginForm" (ngSubmit)="onSubmit()">
       <mat-card-content>
         <mat-form-field appearance="outline" class="full-width">
@@ -36,7 +32,7 @@
         <span class="spacer"></span>
 
         <span class="reg-text">
-          New here? <a mat-button color="accent" routerLink="/register">REGISTER</a>
+          New here? <a mat-button color="accent" routerLink="/group-register">REGISTER</a>
         </span>
       </mat-card-actions>
 
