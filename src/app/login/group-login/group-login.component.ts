@@ -2,24 +2,24 @@ import { Component, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { RouterLink } from '@angular/router';
-import { MaterialModule } from '../shared/design/material-module';
-import { Login } from './login';
+import { MaterialModule } from '../../shared/design/material-module';
+import { GroupLogin} from './group-login';
 
 @Component({
-  selector: 'app-login',
+  selector: 'app-group-login',
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule, RouterLink, MaterialModule,],
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  templateUrl: './group-login.component.html',
+  styleUrls: ['./group-login.component.css']
 })
-export class LoginComponent {
+export class GroupLoginComponent {
   
   groupLoginForm: FormGroup;
   hidePassword = true;
 
   constructor(
     private fb: FormBuilder, 
-    private loginService: Login,
+    private groupLoginService: GroupLogin,
   ) {
     this.groupLoginForm = this.fb.group({
       groupEmail: ['', [Validators.required, Validators.email]],
@@ -30,12 +30,12 @@ export class LoginComponent {
   onSubmit() {
     console.log(this.groupLoginForm.value);
     if (this.groupLoginForm.valid) {
-      this.loginService.groupLogin(this.groupLoginForm.value).subscribe({
+      this.groupLoginService.groupLogin(this.groupLoginForm.value).subscribe({
         next: (response) => {
-          console.log('Login success:', response);
+          console.log('Group login success:', response);
         },
         error: (err) => {
-          console.error('Login failed:', err);
+          console.error('Group login failed:', err);
         }
       });
     }
