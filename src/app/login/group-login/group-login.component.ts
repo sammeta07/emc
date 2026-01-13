@@ -1,7 +1,7 @@
 import { Component, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, Validators, FormGroup } from '@angular/forms';
-import { RouterLink } from '@angular/router';
+import { RouterLink, Router } from '@angular/router';
 import { MaterialModule } from '../../shared/design/material-module';
 import { GroupLoginService} from './group-login.service';
 
@@ -20,6 +20,7 @@ export class GroupLoginComponent {
   constructor(
     private fb: FormBuilder, 
     private groupLoginService: GroupLoginService,
+    private router: Router
   ) {
     this.groupLoginForm = this.fb.group({
       groupEmail: ['', [Validators.required, Validators.email]],
@@ -33,6 +34,7 @@ export class GroupLoginComponent {
       this.groupLoginService.groupLogin(this.groupLoginForm.value).subscribe({
         next: (response) => {
           console.log('Group login success:', response);
+          this.router.navigate(['groups-dashboard']);
         },
         error: (err) => {
           console.error('Group login failed:', err);

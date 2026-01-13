@@ -1,7 +1,7 @@
 import { Component, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, Validators, FormGroup } from '@angular/forms';
-import { RouterLink } from '@angular/router';
+import { RouterLink, Router } from '@angular/router';
 import { MaterialModule } from '../../shared/design/material-module';
 import { MemberLoginService } from './member-login.service';
 
@@ -19,6 +19,7 @@ export class MemberLoginComponent {
   constructor(
     private fb: FormBuilder,
     private memberLoginService: MemberLoginService,
+    private router: Router,
   ) {
     this.memberLoginForm = this.fb.group({
       memberEmail: ['', [Validators.required, Validators.email]],
@@ -32,6 +33,7 @@ export class MemberLoginComponent {
       this.memberLoginService.memberLogin(this.memberLoginForm.value).subscribe({
         next: (response) => {
           console.log('Member login success:', response);
+          this.router.navigate(['members-dashboard']);
         },
         error: (err) => {
           console.error('Member login failed:', err);

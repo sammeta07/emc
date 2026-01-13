@@ -1,5 +1,5 @@
+
 import { Routes } from '@angular/router';
-import { LoginComponent } from './login/login.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -11,21 +11,13 @@ export const routes: Routes = [
     path: 'register',
     loadComponent: () => import('./registration/registration.component').then(m => m.RegistrationComponent)
   },
-  // {
-  //   path: 'group-register',
-  //   loadComponent: () => import('./registration/registration.component').then(m => m.RegistrationComponent)
-  // },
-  // {
-  //   path: 'group-login',
-  //   loadComponent: () => import('./login/group-login/group-login.component').then(m => m.GroupLoginComponent)
-  // },
-  // {
-  //   path: 'member-register',
-  //   loadComponent: () => import('./registration/registration.component').then(m => m.RegistrationComponent)
-  // },
-  // {
-  //   path: 'member-login',
-  //   loadComponent: () => import('./login/group-login/group-login.component').then(m => m.GroupLoginComponent)
-  // },
+  {
+    path: 'groups-dashboard',
+    loadChildren: () => import('./groups-dashboard/groups-dashboard.module').then(m => m.GroupsDashboardModule)
+  },
+    {
+    path: 'members-dashboard',
+    loadChildren: () => import('./members-dashboard/members-dashboard.module').then(m => m.MembersDashboardModule)
+  },
   { path: '**', redirectTo: 'register' }
 ];
