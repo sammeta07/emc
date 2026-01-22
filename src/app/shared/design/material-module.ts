@@ -38,15 +38,26 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatRippleModule } from '@angular/material/core';
 
 // *************** POPUPS & MODALS ***************
-import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
-import { MatDialogModule } from '@angular/material/dialog';
-import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { MatTooltipModule } from '@angular/material/tooltip';
+// import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
+// import { MatDialogModule } from '@angular/material/dialog';
+// import { MatSnackBarModule } from '@angular/material/snack-bar';
+// import { MatTooltipModule } from '@angular/material/tooltip';
 
 // *************** DATA TABLE ***************
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
+
+// *************** DIALOG ********************
+import {
+  MAT_DIALOG_DATA,
+  MatDialog,
+  MatDialogActions,
+  MatDialogClose,
+  MatDialogContent,
+  MatDialogRef,
+  MatDialogTitle,
+} from '@angular/material/dialog';
 
 // Group the modules for cleaner code (optional, but good practice)
 const materialModules = [
@@ -79,13 +90,14 @@ const materialModules = [
   MatProgressSpinnerModule,
   MatProgressBarModule,
   MatRippleModule,
-  MatBottomSheetModule,
-  MatDialogModule,
-  MatSnackBarModule,
-  MatTooltipModule,
+  // MatBottomSheetModule,
+  // MatDialogModule,
+  // MatSnackBarModule,
+  // MatTooltipModule,
   MatPaginatorModule,
   MatSortModule,
   MatTableModule,
+  // MatDialog
 ];
 
 @NgModule({
@@ -97,4 +109,4 @@ const materialModules = [
     ...materialModules
   ]
 })
-export class MaterialModule { }
+class MaterialModule { }

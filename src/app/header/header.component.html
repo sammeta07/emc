@@ -1,0 +1,11 @@
+<mat-toolbar color="primary">
+  <!-- Left: App logo and name -->
+  <div style="display: flex; align-items: center;">
+    <img src="favicon.ico" alt="App Logo" style="height: 32px; margin-right: 12px;" />
+    <span style="font-size: 1.25rem; font-weight: 500;">My App</span>
+  </div>
+  <span class="spacer"></span>
+  <!-- Right: User avatar/menu and login button -->
+  <button mat-raised-button color="accent" style="margin-left: 8px;" (click)="openLoginDialog()">Login</button>
+  <button mat-raised-button color="accent" style="margin-left: 8px;" (click)="openRegisterDialog()">Register</button>
+</mat-toolbar>

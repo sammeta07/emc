@@ -2,13 +2,22 @@ import { Component, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { RouterLink, Router } from '@angular/router';
-import { MaterialModule } from '../../shared/design/material-module';
 import { GroupLoginService} from './group-login.service';
+import {MatCardModule} from '@angular/material/card';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIcon, MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-group-login',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, RouterLink, MaterialModule,],
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    RouterLink,
+    MatCardModule,
+    MatFormFieldModule,
+    MatIconModule,
+  ],
   templateUrl: './group-login.component.html',
   styleUrls: ['./group-login.component.css']
 })

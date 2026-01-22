@@ -3,13 +3,23 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { MemberRegistrationService } from './member-registration.service';
-import { MaterialModule } from '../../shared/design/material-module';
 import { CustomValidators } from '../../shared/validators/password-validator';
-
+import {MatButtonModule} from '@angular/material/button';
+import {MatCardModule} from '@angular/material/card';
+import {MatIconModule} from '@angular/material/icon';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 @Component({
   selector: 'app-member-registration',
-  imports: [CommonModule, ReactiveFormsModule, RouterLink, MaterialModule],
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    RouterLink,
+    MatButtonModule,
+    MatCardModule,
+    MatIconModule,
+    MatFormFieldModule
+  ],
   templateUrl: './member-registration.component.html',
   styleUrl: './member-registration.component.css',
 })

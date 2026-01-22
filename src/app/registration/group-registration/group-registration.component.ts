@@ -3,13 +3,21 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, Validators,FormGroup } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { GroupRegistrationService } from './group-registration.service';
-import { MaterialModule } from '../../shared/design/material-module';
 import { CustomValidators } from '../../shared/validators/password-validator';
-
+import {MatCardModule} from '@angular/material/card';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-group-registration',
-  imports: [CommonModule, ReactiveFormsModule, RouterLink, MaterialModule],
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    RouterLink,
+    MatCardModule,
+    MatFormFieldModule,
+    MatIconModule
+  ],
   templateUrl: './group-registration.component.html',
   styleUrl: './group-registration.component.css',
 })

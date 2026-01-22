@@ -1,10 +1,13 @@
-.app-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  /* align-items: center; */
-  background-color: rgb(219, 235, 219);
-  width: calc(100vw - 20px);
-  height: calc(100vh - 20px);
-  overflow: scroll;
+.container{
+    background-color: #ffb07f;
+    padding: 10px;
+    height: calc(100vh - 20px);
+    overflow: hidden;
+}
+/* .container .header{} */
+.container .content{
+    height: calc(100vh - 94px);
+    overflow: scroll;
+    /* background-color: #e2f0cb; */
+    padding: 10px 0px 10px 0px;
 }

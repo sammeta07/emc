@@ -1,0 +1,20 @@
+
+<div class="parent">
+  <div *ngFor="let c of cards">
+    <div class={{c.class}}>
+      <mat-card appearance="outlined">
+        <mat-card-header>
+          <mat-card-title-group>
+            <mat-card-title>{{c.title}}</mat-card-title>
+            <mat-card-subtitle>{{c.subtitle}}</mat-card-subtitle>
+            <img mat-card-sm-image src={{c.image}}>
+          </mat-card-title-group>
+        </mat-card-header>
+        <mat-card-content>
+          {{c.longText}}
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>
+

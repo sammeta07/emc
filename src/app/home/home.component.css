@@ -1,0 +1,38 @@
+.parent {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    gap: 8px;
+}
+
+.div5 {
+    grid-row-start: 2;
+}
+
+.div6 {
+    grid-row-start: 2;
+}
+
+.div7 {
+    grid-row-start: 2;
+}
+
+.div8 {
+    grid-row-start: 2;
+}
+
+.div9 {
+    grid-row-start: 3;
+}
+
+.div10 {
+    grid-row-start: 3;
+}
+
+.div11 {
+    grid-row-start: 3;
+}
+
+.div12 {
+    grid-row-start: 3;
+}

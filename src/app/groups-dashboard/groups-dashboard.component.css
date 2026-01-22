@@ -1,1 +1,3 @@
-/* Styles for groups dashboard */
+.example-spacer {
+  flex: 1 1 auto;
+}

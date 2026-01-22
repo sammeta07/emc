@@ -1,5 +1,8 @@
 <div class="member-login-container">
 	<mat-card>
+		<!-- <mat-card-header>
+			<mat-card-title>Member Login</mat-card-title>
+		</mat-card-header> -->
 		<form [formGroup]="memberLoginForm" (ngSubmit)="onSubmit()">
 			<mat-card-content>
 				<mat-form-field appearance="outline" class="full-width">
@@ -29,10 +32,11 @@
 				<button mat-raised-button color="primary" type="submit" [disabled]="!memberLoginForm.valid">
 					Login
 				</button>
+				<button matButton (click)="onNoClick()">Close</button>
 				<span class="spacer"></span>
 
 				<span class="reg-text">
-					New here? <a mat-button color="accent" routerLink="/member-register">REGISTER</a>
+					<a mat-button color="accent" routerLink="/member-register">Forget Password ?</a>
 				</span>
 			</mat-card-actions>
 
