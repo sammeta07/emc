@@ -31,10 +31,10 @@
         <button mat-raised-button color="primary" type="submit" [disabled]="!groupLoginForm.valid">
           Login
         </button>
+        <button matButton (click)="onNoClick()">Close</button>
         <span class="spacer"></span>
 
-        <span class="reg-text">
-          New here? <a mat-button color="accent" routerLink="/group-register">REGISTER</a>
+        <span class="reg-text"><a mat-button color="accent" routerLink="/group-register">Forget Password ?</a>
         </span>
       </mat-card-actions>
 

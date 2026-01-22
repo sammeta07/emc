@@ -1,21 +1,22 @@
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, Validators, FormGroup, FormsModule } from '@angular/forms';
 import { RouterLink, Router } from '@angular/router';import { MemberLoginService } from './member-login.service';
-import {MatCardModule} from '@angular/material/card';
-import {MatIconModule} from '@angular/material/icon';
+import { OnChanges } from '@angular/core';
+import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
-import { Component, inject, model, signal} from '@angular/core';
+import { Component, inject, Input, model, signal} from '@angular/core';
 import {
   MAT_DIALOG_DATA,
   MatDialogRef,
 } from '@angular/material/dialog';
 
-export interface DialogData {
-  animal: string;
-  name: string;
-}
+// export interface DialogData {
+//   animal: string;
+//   name: string;
+// }
 @Component({
   selector: 'app-member-login',
   standalone: true,
@@ -34,8 +35,9 @@ export interface DialogData {
   templateUrl: './member-login.component.html',
   styleUrls: ['./member-login.component.css']
 })
-export class MemberLoginComponent {
+export class MemberLoginComponent implements OnChanges {
 
+  @Input() groupList: any;
   memberLoginForm: FormGroup;
   hidePassword = true;
 
@@ -48,6 +50,10 @@ export class MemberLoginComponent {
       memberEmail: ['', [Validators.required, Validators.email]],
       memberPassword: ['', [Validators.required, Validators.minLength(6)]]
     });
+  }
+
+  ngOnChanges() { 
+    console.log('Group List in MemberLoginComponent:', this.groupList);
   }
 
   onSubmit() {
@@ -64,11 +70,11 @@ export class MemberLoginComponent {
       });
     }
   }
-  readonly dialogRef = inject(MatDialogRef<MemberLoginComponent>);
-  readonly data = inject<DialogData>(MAT_DIALOG_DATA);
-  readonly animal = model(this.data.animal);
+  // readonly dialogRef = inject(MatDialogRef<MemberLoginComponent>);
+  // readonly data = inject<DialogData>(MAT_DIALOG_DATA);
+  // readonly animal = model(this.data.animal);
 
   onNoClick(): void {
-    this.dialogRef.close();
+    // this.dialogRef.close();
   }
 }

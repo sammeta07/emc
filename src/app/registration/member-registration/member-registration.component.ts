@@ -8,6 +8,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import {MatIconModule} from '@angular/material/icon';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 @Component({
   selector: 'app-member-registration',
@@ -18,7 +19,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     MatButtonModule,
     MatCardModule,
     MatIconModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatInputModule
   ],
   templateUrl: './member-registration.component.html',
   styleUrl: './member-registration.component.css',
@@ -36,6 +38,7 @@ export class MemberRegistrationComponent {
       memberName: ['', [Validators.required, Validators.minLength(3)]],
       memberEmail: ['', [Validators.required, Validators.email]],
       memberMobile: ['', [Validators.required, Validators.pattern(/^\d{10}$/)]],
+      memberLocation: ['', [Validators.required]],
       memberPassword: ['', [Validators.required]],
       memberConfirmPassword: ['', [Validators.required]]
     }, {

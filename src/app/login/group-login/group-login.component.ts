@@ -1,11 +1,14 @@
-import { Component, signal } from '@angular/core';
+import { Component, Input, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { RouterLink, Router } from '@angular/router';
 import { GroupLoginService} from './group-login.service';
-import {MatCardModule} from '@angular/material/card';
+import { OnChanges } from '@angular/core';
+import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 import { MatIcon, MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-group-login',
@@ -16,13 +19,16 @@ import { MatIcon, MatIconModule } from '@angular/material/icon';
     RouterLink,
     MatCardModule,
     MatFormFieldModule,
+    MatInputModule,
     MatIconModule,
+    MatButtonModule
   ],
   templateUrl: './group-login.component.html',
   styleUrls: ['./group-login.component.css']
 })
-export class GroupLoginComponent {
+export class GroupLoginComponent implements OnChanges {
   
+  @Input() groupList: any;
   groupLoginForm: FormGroup;
   hidePassword = true;
 
@@ -35,6 +41,10 @@ export class GroupLoginComponent {
       groupEmail: ['', [Validators.required, Validators.email]],
       groupPassword: ['', [Validators.required, Validators.minLength(6)]]
     });
+  }
+
+  ngOnChanges() { 
+    console.log('Group List in GroupLoginComponent:', this.groupList);
   }
 
   onSubmit() {
@@ -50,5 +60,8 @@ export class GroupLoginComponent {
         }
       });
     }
+  }
+  onNoClick(): void {
+    // this.dialogRef.close();
   }
 }

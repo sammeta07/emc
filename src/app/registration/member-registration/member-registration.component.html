@@ -38,6 +38,17 @@
 				</mat-form-field>
 
 				<mat-form-field appearance="outline" class="full-width">
+					<mat-label>Member Location</mat-label>
+					<mat-icon matPrefix>location_on</mat-icon>
+					<input autocomplete="member-location" matInput formControlName="memberLocation" placeholder="Enter member location" />
+					<mat-error *ngIf="memberRegistrationForm.get('memberLocation')?.hasError('required')">
+						Member location is required
+					</mat-error>
+				</mat-form-field>
+
+				
+
+				<mat-form-field appearance="outline" class="full-width">
 					<mat-label>Member Password</mat-label>
 					<mat-icon matPrefix>lock</mat-icon>
 					<input autocomplete="member-password" matInput formControlName="memberPassword" [type]="hidePassword ? 'password' : 'text'" />

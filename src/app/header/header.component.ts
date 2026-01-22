@@ -37,7 +37,7 @@ export class HeaderComponent {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
+      console.log('The LoginComponent dialog was closed');
       if (result !== undefined) {
         this.animal.set(result);
       }
@@ -49,7 +49,7 @@ export class HeaderComponent {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
+      console.log('The RegistrationComponent dialog was closed');
       if (result !== undefined) {
         this.animal.set(result);
       }

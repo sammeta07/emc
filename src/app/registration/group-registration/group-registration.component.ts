@@ -7,6 +7,8 @@ import { CustomValidators } from '../../shared/validators/password-validator';
 import {MatCardModule} from '@angular/material/card';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
 
 @Component({
   selector: 'app-group-registration',
@@ -16,7 +18,10 @@ import { MatIconModule } from '@angular/material/icon';
     RouterLink,
     MatCardModule,
     MatFormFieldModule,
-    MatIconModule
+    MatIconModule,
+    MatButtonModule,
+    MatIconModule,
+    MatInputModule
   ],
   templateUrl: './group-registration.component.html',
   styleUrl: './group-registration.component.css',
@@ -33,9 +38,10 @@ export class GroupRegistrationComponent {
       this.groupRegistrationForm = this.fb.group({
         groupName: ['', [Validators.required, Validators.minLength(3)]],
         groupEmail: ['', [Validators.required, Validators.email]],
-        groupMobile: ['', [Validators.required, Validators.pattern(/^\d{10}$/)]],
+        groupMobile: ['', [Validators.required,]],
         groupPassword: ['', [Validators.required]],
-        groupConfirmPassword: ['', [Validators.required]]
+        groupConfirmPassword: ['', [Validators.required]],
+        groupLocation: ['', [Validators.required]],
         }, { 
         validators: CustomValidators.passwordMatch 
       });
