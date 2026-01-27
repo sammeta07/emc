@@ -47,7 +47,7 @@ export class LoginComponent implements OnInit {
 
   getGroupList() {
     const data ={
-      "groupLocation": "BHILAI"
+      "groupLocation": "charoda"
     }
     this.loginService.groupList(data).subscribe({
       next: (response: any) => {
